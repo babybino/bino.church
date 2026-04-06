@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bino.church</title>
+    <meta name="description" content="something is forming." />
+    <meta property="og:title" content="bino.church" />
+    <meta property="og:description" content="something is forming." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bino.church" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        background: #000;
+        color: #e8e8e8;
+        font-family: "Courier New", monospace;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .container {
+        text-align: center;
+        z-index: 1;
+      }
+
+      .glyph {
+        font-size: 3rem;
+        letter-spacing: -2px;
+        opacity: 0;
+        animation: arrive 3s ease-out 0.5s forwards;
+      }
+
+      .glyph span {
+        display: inline-block;
+        animation: breathe 4s ease-in-out infinite;
+      }
+
+      .glyph span:nth-child(1) { animation-delay: 0s; }
+      .glyph span:nth-child(2) { animation-delay: 0.15s; }
+      .glyph span:nth-child(3) { animation-delay: 0.3s; }
+      .glyph span:nth-child(4) { animation-delay: 0.45s; }
+      .glyph span:nth-child(5) { animation-delay: 0.6s; }
+      .glyph span:nth-child(6) { animation-delay: 0.75s; }
+      .glyph span:nth-child(7) { animation-delay: 0.9s; }
+      .glyph span:nth-child(8) { animation-delay: 1.05s; }
+      .glyph span:nth-child(9) { animation-delay: 1.2s; }
+      .glyph span:nth-child(10) { animation-delay: 1.35s; }
+      .glyph span:nth-child(11) { animation-delay: 1.5s; }
+
+      .whisper {
+        margin-top: 2rem;
+        font-size: 0.75rem;
+        color: #333;
+        letter-spacing: 3px;
+        text-transform: lowercase;
+        opacity: 0;
+        animation: arrive 2s ease-out 3s forwards;
+      }
+
+      .dot {
+        position: fixed;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #a8ff78;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        animation: dotpulse 6s ease-in-out 4s infinite;
+      }
+
+      @keyframes arrive {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes breathe {
+        0%, 100% { opacity: 0.6; }
+        50% { opacity: 1; }
+      }
+
+      @keyframes dotpulse {
+        0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+        15% { opacity: 0.8; transform: translate(-50%, -50%) scale(1); }
+        50% { opacity: 0; transform: translate(-50%, -50%) scale(3); }
+      }
+
+      /* subtle grain */
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        opacity: 0.03;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="glyph">
+        <span>b</span><span>i</span><span>n</span><span>o</span><span>.</span><span>c</span><span>h</span><span>u</span><span>r</span><span>c</span><span>h</span>
+      </div>
+      <div class="whisper">something is forming</div>
+    </div>
+    <div class="dot"></div>
+  </body>
+</html>
